@@ -1,5 +1,13 @@
 include:"/views/order_items.view.lkml"
+
  view: +order_items {
+
+sql_table_name: `demo_db.order_items` ;;
+
+  dimension: test_id {
+    type: number
+    sql: ${id}/100 ;;
+  }
 
   measure: navigation {
     type: sum
@@ -9,9 +17,7 @@ include:"/views/order_items.view.lkml"
       label: "status count"
       url: "/dashboards/9"
     }
-
-
-    link: {
+ link: {
       label: "user count status"
       url: "/dashboards/10?@{url_ms_custom_back_of_pack}"
     }

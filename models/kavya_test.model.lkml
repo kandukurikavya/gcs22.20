@@ -43,6 +43,7 @@ explore: events {
     relationship: many_to_one
   }
 }
+explore: +order_items {}
 
 explore: fakeorders {
   join: orders {
