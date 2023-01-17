@@ -16,4 +16,12 @@ view: salary {
     type: count
     drill_fields: [dept.dept_id, dept.dept_name]
   }
+  measure: sum {
+    type: sum
+    sql: ${salary} ;;
+  }
+  measure: negative {
+    type: number
+    sql: ${salary}*-1000 ;;
+  }
 }

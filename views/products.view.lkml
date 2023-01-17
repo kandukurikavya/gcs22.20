@@ -6,12 +6,13 @@ view: products {
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
+
   }
 
   dimension: brand {
     type: string
     sql: ${TABLE}.brand ;;
-  }
+}
 
   dimension: category {
     type: string
@@ -47,4 +48,4 @@ view: products {
     type: count
     drill_fields: [id, item_name, inventory_items.count]
   }
-}
+  }

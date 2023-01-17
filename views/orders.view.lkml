@@ -17,14 +17,24 @@ view: orders {
       week,
       month,
       quarter,
+       hour_of_day,
+      hour,
+      minute30,
+      hour2,
       year
     ]
     sql: ${TABLE}.created_at ;;
   }
 
+
+
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
+    link: {
+      url: "/dashboards/53?Status={{ _filters['orders.status'] | url_encode }}"
+    }
+
   }
 
   dimension: user_id {
@@ -33,10 +43,16 @@ view: orders {
     sql: ${TABLE}.user_id ;;
   }
 
+
   measure: count {
     type: count
     drill_fields: [detail*]
   }
+  measure: test {
+    type: number
+    sql: ${count}-300 ;;
+  }
+
 
   # ----- Sets of fields for drilling ------
   set: detail {
