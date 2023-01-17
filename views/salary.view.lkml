@@ -9,7 +9,7 @@ view: salary {
 
   dimension: salary {
     type: number
-    sql: ${TABLE}.Salary ;;
+    sql: round(${TABLE}.Salary );;
   }
 
   measure: count {
@@ -18,6 +18,11 @@ view: salary {
   }
   measure: sum {
     type: sum
+    sql: ${salary} ;;
+  }
+
+  measure: sal {
+    type: number
     sql: ${salary} ;;
   }
   measure: negative {
