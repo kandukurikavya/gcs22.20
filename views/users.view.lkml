@@ -138,7 +138,8 @@ measure: test {
   type: number
   sql: ${count} ;;
    html:
-
+{% assign sale_price =sale_price| round %}
+{% assign count = value | times: 100 | divided_by: sale_price | round %}
 <div class="vis-single-value-wrapper">
 <div class="vis-single-value-wrapper" style="font-size: 2.5vw;">
 <div class="centered">
