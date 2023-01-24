@@ -1,6 +1,5 @@
-
-      - dashboard: funnel_dashboard
-  title: funnel dashboard
+- dashboard: funneldash
+  title: Funneldash
   layout: newspaper
   preferred_viewer: dashboards-next
   preferred_slug: UaBpAwS3oLZCxRwzYisAf7

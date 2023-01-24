@@ -1,7 +1,7 @@
 connection: "thelook"
-
-# include all the views
 include: "/views/**/*.view"
+
+include: "/views/Funneldash.dashboard.lookml"
 
 
 datagroup: kavya_test_default_datagroup {
