@@ -43,13 +43,7 @@ explore: events {
     relationship: many_to_one
   }
 }
-explore: view {
-  join: salary{
-    type: left_outer
-    sql_on: ${view.dept_id}=${salary.dept_id} ;;
-    relationship: many_to_one
-  }
-}
+
 
 explore: fakeorders {
   join: orders {
