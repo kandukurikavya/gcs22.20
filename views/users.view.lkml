@@ -157,8 +157,8 @@ measure: test {
 </div>
 </div>
 </div>
-<div class="vis-single-value-progress" style=" background-color: {% if count < 60 %} rgba(228,48,30, 0.1) {% elsif count >= 6000 and count < 9000 %} rgba(250,191,77,0.1) {% elsif count >= 9000 %} rgba(34,139,34,0.1) {% endif %};">
-<div class="vis-single-value-progress-bar" style="float: left; width:{{ count }}%; background-color: {% if count < 60 %} rgba(228, 48, 30, 0.1) {% elsif count >= 6000 and count < 90 %} rgba(250, 191, 77, 0.1) {% elsif count >= 9000 %} rgba(34, 139, 34, 0.1) {% endif %};">
+<div class="vis-single-value-progress" style=" background-color: {% if count < 60 %} rgba(228,48,30, 0.1) {% elsif count >= 60 and count < 90 %} rgba(250,191,77,0.1) {% elsif count >= 90 %} rgba(34,139,34,0.1) {% endif %};">
+<div class="vis-single-value-progress-bar" style="float: left; width:{{ count }}%; background-color: {% if count < 60 %} rgba(228, 48, 30, 0.1) {% elsif count >= 60 and count < 90 %} rgba(250, 191, 77, 0.1) {% elsif count >= 9000 %} rgba(34, 139, 34, 0.1) {% endif %};">
 </div>
 </div>
 </div>
