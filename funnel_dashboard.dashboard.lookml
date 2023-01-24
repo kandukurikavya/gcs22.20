@@ -1,8 +1,8 @@
 - dashboard: funnel_dashboard
   title: funnel dashboard
   layout: newspaper
-  #preferred_viewer: dashboards-next
-  preferred_slug: UaBpAwS3oLZCxRwzYisAf7
+ # preferred_viewer: dashboards-next
+ # preferred_slug: UaBpAwS3oLZCxRwzYisAf7
   elements:
   - title: funnel dashboard
     name: funnel dashboard
