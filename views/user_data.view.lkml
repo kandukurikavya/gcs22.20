@@ -23,7 +23,23 @@ view: user_data {
     # hidden: yes
     sql: ${TABLE}.user_id ;;
   }
-
+measure: testing {
+  type: number
+  sql: ${total_num_orders}-${max_num_orders}*100.90 ;;
+  value_format: "0.00"
+#   html: {% if value < 0 %}
+#                 <font style="color: #990000"> ▼ ( {{ rendered_value | times: -1 | round}} ) </font>
+#               {% elsif value > 0 %}
+#                 <font style="color: #009900"> ▲ {{ rendered_value | round}}  </font>
+#               {% else %}
+#                 <font style="color: #000000"> {{ rendered_value | round}} </font>
+#               {% endif %}
+# ;;
+}
+  measure: testing2 {
+    type: number
+    sql: ${total_num_orders}-${max_num_orders}*100.90 ;;
+    }
   measure: count {
     type: count
     drill_fields: [id, users.id, users.first_name, users.last_name]
