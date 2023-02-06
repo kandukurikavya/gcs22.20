@@ -31,8 +31,8 @@
     listen: {}
     row: 0
     col: 0
-    width: 24
-    height: 12
+    width: 5
+    height: 6
 
   - title: funnel dashboard
     name: funnel dashboard
@@ -59,5 +59,5 @@
     listen: {}
     row: 0
     col: 0
-    width: 24
-    height: 12
+    width: 5
+    height: 6
