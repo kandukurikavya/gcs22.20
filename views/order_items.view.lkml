@@ -55,7 +55,36 @@ dimension: test_date {
     type: number
     sql: ${TABLE}.sale_price ;;
   }
+  measure: total_sale {
+    type: sum
+    sql: ${sale_price} ;;
+  }
+  measure: average_sale {
+    type: average
+    sql: ${sale_price} ;;
+  }
+  parameter: test {
+    type: unquoted
+    allowed_value: {
 
+      value: "total"
+    }
+    allowed_value: {
+
+      value: "average"
+    }
+  }
+
+  measure: testing {
+    sql:
+    {% if test._parameter_value == 'total' %}
+     ${total_sale}
+    {% elsif test._parameter_value == 'average' %}
+     ${average_sale}
+    {% else %}
+      null
+    {% endif %};;
+}
   measure: count {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]
