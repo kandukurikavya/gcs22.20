@@ -51,6 +51,26 @@ dimension: test_date {
   sql: ${TABLE}.returned_at ;;
 }
 
+  parameter: timeframe_picker {
+    label: "Time Series"
+    type: unquoted
+    allowed_value: { value: "Date"}
+    allowed_value: { value: "Week"}
+    allowed_value: { value: "Month"}
+    default_value: "Month"
+  }
+  dimension: dynamic_timeframe {
+    hidden: no
+    sql: {% if timeframe_picker._parameter_value == 'Date' %}
+      ${returned_date}
+      {% elsif timeframe_picker._parameter_value == 'Week' %}
+      ${returned_week}
+      {% elsif timeframe_picker._parameter_value == 'Month' %}
+      ${returned_month}
+      {% else %}
+      ${returned_year}
+      {% endif %};;
+  }
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;
@@ -63,28 +83,7 @@ dimension: test_date {
     type: average
     sql: ${sale_price} ;;
   }
-  parameter: test {
-    type: unquoted
-    allowed_value: {
 
-      value: "total"
-    }
-    allowed_value: {
-
-      value: "average"
-    }
-  }
-
-  measure: testing {
-    sql:
-    {% if test._parameter_value == 'total' %}
-     ${total_sale}
-    {% elsif test._parameter_value == 'average' %}
-     ${average_sale}
-    {% else %}
-      null
-    {% endif %};;
-}
   measure: count {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]

@@ -1,21 +1,19 @@
-
-
-- dashboard: box_plote
-  title: box plote
+- dashboard: parameter_filter_dashboard
+  title: parameter filter dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: SzcoTKoxAroedroY259oTa
+  preferred_slug: v0V9WV0ZpvsFVAHLsNqQEm
   elements:
-  - title: box plote
-    name: box plote
+  - title: parameter filter dashboard
+    name: parameter filter dashboard
     model: kavya_test
     explore: order_items
     type: looker_boxplot
-    fields: [orders.status, orders.count, inventory_items.count, users.count]
+    fields: [order_items.dynamic_timeframe, orders.count, products.count]
+    filters: {}
     sorts: [orders.count desc 0]
     limit: 500
-    query_timezone: America/Los_Angeles
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -29,76 +27,34 @@
     x_axis_reversed: false
     y_axis_reversed: false
     plot_size_by_field: false
-    series_types: {}
-    defaults_version: 1
-    listen:
-      Status: orders.status
-      Order ID: order_items.order_id
-    row: 0
-    col: 0
-    width: 24
-    height: 12
-  - title: looka
-    name: looka
-    model: action_label_bug
-    explore: order_items
-    type: looker_grid
-    fields: [order_items.id, order_items.count]
-    sorts: [order_items.count desc]
-    limit: 500
-    query_timezone: America/Los_Angeles
-    show_view_names: false
     show_row_numbers: true
-    transpose: false
-    truncate_text: true
+    truncate_column_names: false
     hide_totals: false
     hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
+    table_theme: editable
     limit_displayed_rows: false
     enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: 12
-    rows_font_size: 12
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    series_types: {}
     defaults_version: 1
+    series_types: {}
     listen:
-      Status: orders.status
-      Order ID: order_items.order_id
-    row: 12
+      Time Series: order_items.timeframe_picker
+    row: 0
     col: 0
     width: 8
     height: 6
   filters:
-  - name: Status
-    title: Status
+  - name: Time Series
+    title: Time Series
     type: field_filter
-    default_value: ''
+    default_value: Month
     allow_multiple_values: true
     required: false
     ui_config:
       type: dropdown_menu
       display: inline
-    model: kavya_test
-    explore: order_items
-    listens_to_filters: [Order ID]
-    field: orders.status
-  - name: Order ID
-    title: Order ID
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    ui_config:
-      type: dropdown_menu
-      display: inline
-      options:
-      - '1'
-      - '2'
-      - '3'
     model: kavya_test
     explore: order_items
     listens_to_filters: []
-    field: order_items.order_id
+    field: order_items.timeframe_picker
