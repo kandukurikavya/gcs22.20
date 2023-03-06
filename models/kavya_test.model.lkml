@@ -14,7 +14,7 @@ persist_with: kavya_test_default_datagroup
 
 
 explore: imgsrc1onerroralert2 {}
-
+explore: sql_runner_query {}
 explore: account {}
 
 explore: billion_orders {
@@ -34,7 +34,9 @@ explore: connection_reg_r3 {}
 
 explore: dept {}
 
-explore: employees {}
+explore: employees {
+  extends: [dept]
+}
 
 explore: events {
   join: users {
