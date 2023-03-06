@@ -1,5 +1,6 @@
 connection: "thelook"
 include: "/views/**/*.view"
+include: "/views/dept_extended.view.lkml"
 include: "/boxplot.dashboard.lookml"
 
 

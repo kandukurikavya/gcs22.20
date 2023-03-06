@@ -1,4 +1,4 @@
-include:/views/dept.view.lkml
+
 view: employees {
   sql_table_name: demo_db.Employees ;;
 
